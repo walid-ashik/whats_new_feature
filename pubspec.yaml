@@ -1,7 +1,7 @@
 name: whats_new_feature
 description: Show apple like whats new feature in the latest update
 version: 0.0.1-dev.1
-homepage: https://github.com/walidashik/whats_new_feature
+homepage: https://github.com/walid-ashik/whats_new_feature
 maintainer: Walid Ashik(@walidashik)
 
 environment:
