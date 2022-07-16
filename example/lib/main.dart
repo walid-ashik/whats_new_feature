@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     await const WhatsNewFeature().showWhatsNew(
       context,
       showWhatsNew: true,
-      navigatedToWhatsNewPage: () {},
+      showWhatsNewOnFirstInstall: true,
       features: [
         WhatsNewFeatureTile(
           icon: Icons.browse_gallery_rounded,
