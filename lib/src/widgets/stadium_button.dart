@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 /// some
 class StadiumButton extends StatelessWidget {
-
-  /// 
+  ///
   const StadiumButton({
     Key? key,
     required this.child,
@@ -11,15 +10,15 @@ class StadiumButton extends StatelessWidget {
     this.leftPadding = 40,
     this.rightPadding = 40,
     this.isLoading = false,
-    this.color = Colors.amber,
+    this.color,
   }) : super(key: key);
-  
+
   final Widget child;
   final VoidCallback onTap;
   final double leftPadding;
   final double rightPadding;
   final bool isLoading;
-  final Color color;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {

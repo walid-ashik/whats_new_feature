@@ -21,7 +21,7 @@ class WhatsNewFeature {
     required Function() navigatedToWhatsNewPage,
     required List<WhatsNewFeatureTile> features,
     bool showWhatsNewOnFirstInstall = false,
-    String? appName,
+    Color buttonColor = Colors.amber,
   }) async {
     // do not navigate to whats new page if [showWhatsNew] false
     if (showWhatsNew == false) return;
@@ -37,31 +37,41 @@ class WhatsNewFeature {
     /// do not show whats new feature page on the first install
     ///
     /// on the first install, [previousAppVersion] will always be empty
-    if (previousAppVersion.isEmpty && showWhatsNewOnFirstInstall == false) {
-      return;
-    }
+    // if (previousAppVersion.isEmpty && showWhatsNewOnFirstInstall == false) {
+    //   await prefs.setString(installedAppVersionKey, currentAppVersion);
+    //   return;
+    // }
 
-    if (currentAppVersion != previousAppVersion) {
-      await prefs.setString(installedAppVersionKey, currentAppVersion);
-      navigatedToWhatsNewPage.call();
-      // ignore: use_build_context_synchronously
-      _navigateToWhatsNewPage(
-        context,
-        features,
-        appName,
-      );
-    }
+    // if (currentAppVersion != previousAppVersion) {
+    //   await prefs.setString(installedAppVersionKey, currentAppVersion);
+    //   navigatedToWhatsNewPage.call();
+    //   // ignore: use_build_context_synchronously
+    //   _navigateToWhatsNewPage(
+    //     context,
+    //     features,
+    //     appName,
+    //   );
+    // }
+
+    _navigateToWhatsNewPage(
+      context,
+      features,
+      packageInfo.appName,
+      buttonColor,
+    );
   }
 
   void _navigateToWhatsNewPage(
     BuildContext context,
     List<WhatsNewFeatureTile> features,
-    String? appName,
+    String appName,
+    Color? buttonColor,
   ) {
     Navigator.push<void>(
       context,
       MaterialPageRoute(
         builder: (context) => WhatsNewFeaturePage(
+          buttonColor: buttonColor,
           features: features,
           appName: appName,
         ),
