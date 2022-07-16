@@ -1,6 +1,9 @@
 name: whats_new_feature
 description: Show apple like whats new feature in the latest update
 version: 0.0.1+1
+author: Walid Ashik<walid.al.ashik@gmail.com>
+homepage: https://github.com/walidashik/whats_new_feature
+maintainer: Walid Ashik(@walidashik)
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
