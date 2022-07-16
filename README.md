@@ -10,7 +10,7 @@ Show apple like whats new feature on new update of your app
 
 ## Installation
 
-Add `whats_new_feature: ^0.0.1` to your `pubspec.yaml` dependencies. And import it:
+Add `whats_new_feature: ^0.0.1-dev.2` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
 import 'package:whats_new_feature/whats_new_feature.dart';
