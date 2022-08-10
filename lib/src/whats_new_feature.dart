@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,7 +22,6 @@ class WhatsNewFeature {
     required bool showWhatsNew,
     Function()? navigatedToWhatsNewPage,
     required List<WhatsNewFeatureTile> features,
-    bool showWhatsNewOnFirstInstall = false,
     Color buttonColor = Colors.amber,
     Duration delay = const Duration(seconds: 1),
   }) async {
@@ -31,14 +32,14 @@ class WhatsNewFeature {
 
     final prefs = await SharedPreferences.getInstance();
 
-    final currentAppVersion = packageInfo.version;
+    final currentAppVersion = packageInfo.buildNumber;
 
     final previousAppVersion = prefs.getString(installedAppVersionKey) ?? '';
 
     /// do not show whats new feature page on the first install
     ///
     /// on the first install, [previousAppVersion] will always be empty
-    if (previousAppVersion.isEmpty && showWhatsNewOnFirstInstall == false) {
+    if (previousAppVersion.isEmpty) {
       await prefs.setString(installedAppVersionKey, currentAppVersion);
       return;
     }
