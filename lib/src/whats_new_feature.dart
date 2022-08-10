@@ -32,7 +32,7 @@ class WhatsNewFeature {
 
     final prefs = await SharedPreferences.getInstance();
 
-    final currentAppVersion = packageInfo.version;
+    final currentAppVersion = packageInfo.buildNumber;
 
     final previousAppVersion = prefs.getString(installedAppVersionKey) ?? '';
 
